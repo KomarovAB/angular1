@@ -6,11 +6,16 @@ import { CartService } from '../cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
+
 export class CartComponent implements OnInit {
+  items;
 
-  constructor() { }
+  constructor(
+    private cartService: CartService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.items = this.cartService.getItems();
   }
-
 }
